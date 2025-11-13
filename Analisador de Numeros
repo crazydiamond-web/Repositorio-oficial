@@ -1,0 +1,819 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int opcion;
+
+        System.out.println("=== ANALIZADOR DE NÚMEROS ===");
+        System.out.println("1. ¿Termina en 4?");
+        System.out.println("2. ¿Tiene 3 dígitos?");
+        System.out.println("3. ¿Es negativo?");
+        System.out.println("4. Suma de dígitos (2 dígitos)");
+        System.out.println("5. ¿Ambos dígitos pares? (2 dígitos)");
+        System.out.println("6. ¿Es primo menor que 20? (2 dígitos)");
+        System.out.println("7. ¿Es primo y negativo? (2 dígitos)");
+        System.out.println("8. ¿Ambos dígitos son primos? (2 dígitos)");
+        System.out.println("9. ¿Un dígito es múltiplo del otro? (2 dígitos)");
+        System.out.println("10. ¿Los dígitos son iguales? (2 dígitos)");
+        System.out.println("11. ¿Cuál es el mayor? (2 números)");
+        System.out.println("12. ¿Tienen dígitos comunes? (2 números de 2 dígitos)");
+        System.out.println("13. ¿Suma par? (2 números de 2 dígitos)");
+        System.out.println("14. Suma de todos los dígitos (2 números de 2 dígitos)");
+        System.out.println("15. Suma de dígitos (3 dígitos)");
+        System.out.println("16. ¿Al menos 2 dígitos iguales? (3 dígitos)");
+        System.out.println("17. Posición del mayor dígito (3 dígitos)");
+        System.out.println("18. ¿Algún dígito es múltiplo de los otros? (3 dígitos)");
+        System.out.println("19. Mayor de 3 números (2 variables)");
+        System.out.println("20. Ordenar 3 números ascendentemente");
+        System.out.println("21. Número con el mayor dígito (3 números de 2 dígitos)");
+        System.out.println("22. ¿Primer dígito = último? (3 dígitos)");
+        System.out.println("23. Cantidad de dígitos primos (3 dígitos)");
+        System.out.println("24. Cantidad de dígitos pares (3 dígitos)");
+        System.out.println("25. ¿Algún dígito = suma de los otros? (3 dígitos)");
+        System.out.println("26. Suma de dígitos (4 dígitos)");
+        System.out.println("27. Cantidad de dígitos pares (4 dígitos)");
+        System.out.println("28. ¿Es primo menor que 50?");
+        System.out.println("29. ¿Es capicúa? (5 dígitos)");
+        System.out.println("30. ¿Segundo dígito = penúltimo? (4 dígitos)");
+        System.out.println("31. ¿Es igual a 10?");
+        System.out.println("32. ¿Es múltiplo de 7?");
+        System.out.println("33. ¿Termina en 7?");
+        System.out.println("34. ¿Cuántos dígitos tiene? (menor que 1000)");
+        System.out.println("35. Separar dígitos en variables (2 dígitos)");
+        System.out.println("36. ¿Más pares o impares? (4 dígitos)");
+        System.out.println("37. ¿Cuál es múltiplo de cuál? (2 números)");
+        System.out.println("38. ¿Último dígito igual? (3 números)");
+        System.out.println("39. ¿Penúltimo dígito igual? (3 números)");
+        System.out.println("40. Números entre dos números (diferencia ≤ 10)");
+        System.out.println("41. ¿Diferencia es primo? (2 números)");
+        System.out.println("42. ¿Diferencia es par? (2 números)");
+        System.out.println("43. ¿Diferencia divide a alguno? (2 números)");
+        System.out.println("44. ¿Primer dígito múltiplo de otros? (4 dígitos)");
+        System.out.println("45. Análisis condicional (2 dígitos)");
+        System.out.println("46. Análisis por terminación (2 dígitos)");
+        System.out.println("47. Análisis de diferencia (2 números)");
+        System.out.println("48. ¿Es primo menor que 100?");
+        System.out.println("49. Si es múltiplo de 4, ¿último dígito primo?");
+        System.out.println("50. Análisis múltiplos 4, 5 y 6 (≤ 100)");
+        System.out.print("\nElige una opción (1-50): ");
+        opcion = teclado.nextInt();
+
+        switch (opcion) {
+            case 1:
+                System.out.print("Ingresa un número: ");
+                int num = teclado.nextInt();
+                if (num % 10 == 4 || num % 10 == -4) {
+                    System.out.println("✓ SÍ termina en 4");
+                } else {
+                    System.out.println("✗ NO termina en 4");
+                }
+                break;
+
+            case 2:
+                System.out.print("Ingresa un número: ");
+                int num2 = teclado.nextInt();
+                int absoluto = Math.abs(num2);
+                if (absoluto >= 100 && absoluto <= 999) {
+                    System.out.println("✓ SÍ tiene 3 dígitos");
+                } else {
+                    System.out.println("✗ NO tiene 3 dígitos");
+                }
+                break;
+
+            case 3:
+                System.out.print("Ingresa un número: ");
+                int num3 = teclado.nextInt();
+                if (num3 < 0) {
+                    System.out.println("✓ SÍ es negativo");
+                } else {
+                    System.out.println("✗ NO es negativo");
+                }
+                break;
+
+            case 4:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num4 = teclado.nextInt();
+                int d1 = Math.abs(num4) / 10;
+                int d2 = Math.abs(num4) % 10;
+                int suma = d1 + d2;
+                System.out.println("Suma de dígitos: " + suma);
+                break;
+
+            case 5:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num5 = teclado.nextInt();
+                int d1_5 = Math.abs(num5) / 10;
+                int d2_5 = Math.abs(num5) % 10;
+                if (d1_5 % 2 == 0 && d2_5 % 2 == 0) {
+                    System.out.println("✓ Ambos dígitos son pares");
+                } else {
+                    System.out.println("✗ No ambos son pares");
+                }
+                break;
+
+            case 6:
+                System.out.print("Ingresa un número de 2 dígitos menor que 20: ");
+                int num6 = teclado.nextInt();
+                boolean esPrimo = false;
+                if (num6 == 11 || num6 == 13 || num6 == 17 || num6 == 19) {
+                    esPrimo = true;
+                }
+                if (esPrimo) {
+                    System.out.println("✓ SÍ es primo");
+                } else {
+                    System.out.println("✗ NO es primo");
+                }
+                break;
+
+            case 7:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num7 = teclado.nextInt();
+                int absoluto7 = Math.abs(num7);
+                boolean esPrimo7 = false;
+                if (absoluto7 == 11 || absoluto7 == 13 || absoluto7 == 17 || absoluto7 == 19 ||
+                        absoluto7 == 23 || absoluto7 == 29 || absoluto7 == 31 || absoluto7 == 37 ||
+                        absoluto7 == 41 || absoluto7 == 43 || absoluto7 == 47 || absoluto7 == 53 ||
+                        absoluto7 == 59 || absoluto7 == 61 || absoluto7 == 67 || absoluto7 == 71 ||
+                        absoluto7 == 73 || absoluto7 == 79 || absoluto7 == 83 || absoluto7 == 89 || absoluto7 == 97) {
+                    esPrimo7 = true;
+                }
+                if (esPrimo7 && num7 < 0) {
+                    System.out.println("✓ Es primo Y negativo");
+                } else if (esPrimo7) {
+                    System.out.println("Es primo pero NO es negativo");
+                } else if (num7 < 0) {
+                    System.out.println("Es negativo pero NO es primo");
+                } else {
+                    System.out.println("✗ NO es primo ni negativo");
+                }
+                break;
+
+            case 8:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num8 = teclado.nextInt();
+                int d1_8 = Math.abs(num8) / 10;
+                int d2_8 = Math.abs(num8) % 10;
+                boolean d1Primo = (d1_8 == 2 || d1_8 == 3 || d1_8 == 5 || d1_8 == 7);
+                boolean d2Primo = (d2_8 == 2 || d2_8 == 3 || d2_8 == 5 || d2_8 == 7);
+                if (d1Primo && d2Primo) {
+                    System.out.println("✓ Ambos dígitos son primos");
+                } else {
+                    System.out.println("✗ No ambos son primos");
+                }
+                break;
+
+            case 9:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num9 = teclado.nextInt();
+                int d1_9 = Math.abs(num9) / 10;
+                int d2_9 = Math.abs(num9) % 10;
+                if (d1_9 != 0 && d2_9 % d1_9 == 0) {
+                    System.out.println("✓ " + d2_9 + " es múltiplo de " + d1_9);
+                } else if (d2_9 != 0 && d1_9 % d2_9 == 0) {
+                    System.out.println("✓ " + d1_9 + " es múltiplo de " + d2_9);
+                } else {
+                    System.out.println("✗ Ninguno es múltiplo del otro");
+                }
+                break;
+
+            case 10:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num10 = teclado.nextInt();
+                int d1_10 = Math.abs(num10) / 10;
+                int d2_10 = Math.abs(num10) % 10;
+                if (d1_10 == d2_10) {
+                    System.out.println("✓ Los dígitos son iguales");
+                } else {
+                    System.out.println("✗ Los dígitos son diferentes");
+                }
+                break;
+
+            case 11:
+                System.out.print("Ingresa el primer número: ");
+                int num1_11 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_11 = teclado.nextInt();
+                if (num1_11 > num2_11) {
+                    System.out.println("El mayor es: " + num1_11);
+                } else if (num2_11 > num1_11) {
+                    System.out.println("El mayor es: " + num2_11);
+                } else {
+                    System.out.println("Son iguales");
+                }
+                break;
+
+            case 12:
+                System.out.print("Ingresa el primer número de 2 dígitos: ");
+                int num1_12 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número de 2 dígitos: ");
+                int num2_12 = teclado.nextInt();
+                int d1_1 = Math.abs(num1_12) / 10;
+                int d1_2 = Math.abs(num1_12) % 10;
+                int d2_1 = Math.abs(num2_12) / 10;
+                int d2_2 = Math.abs(num2_12) % 10;
+                if (d1_1 == d2_1 || d1_1 == d2_2 || d1_2 == d2_1 || d1_2 == d2_2) {
+                    System.out.println("✓ Tienen dígitos comunes");
+                } else {
+                    System.out.println("✗ NO tienen dígitos comunes");
+                }
+                break;
+
+            case 13:
+                System.out.print("Ingresa el primer número de 2 dígitos: ");
+                int num1_13 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número de 2 dígitos: ");
+                int num2_13 = teclado.nextInt();
+                int suma13 = num1_13 + num2_13;
+                if (suma13 % 2 == 0) {
+                    System.out.println("✓ La suma (" + suma13 + ") es par");
+                } else {
+                    System.out.println("✗ La suma (" + suma13 + ") es impar");
+                }
+                break;
+
+            case 14:
+                System.out.print("Ingresa el primer número de 2 dígitos: ");
+                int num1_14 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número de 2 dígitos: ");
+                int num2_14 = teclado.nextInt();
+                int d1_1_14 = Math.abs(num1_14) / 10;
+                int d1_2_14 = Math.abs(num1_14) % 10;
+                int d2_1_14 = Math.abs(num2_14) / 10;
+                int d2_2_14 = Math.abs(num2_14) % 10;
+                int suma14 = d1_1_14 + d1_2_14 + d2_1_14 + d2_2_14;
+                System.out.println("Suma de todos los dígitos: " + suma14);
+                break;
+
+            case 15:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num15 = teclado.nextInt();
+                int d1_15 = Math.abs(num15) / 100;
+                int d2_15 = (Math.abs(num15) / 10) % 10;
+                int d3_15 = Math.abs(num15) % 10;
+                int suma15 = d1_15 + d2_15 + d3_15;
+                System.out.println("Suma de dígitos: " + suma15);
+                break;
+
+            case 16:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num16 = teclado.nextInt();
+                int d1_16 = Math.abs(num16) / 100;
+                int d2_16 = (Math.abs(num16) / 10) % 10;
+                int d3_16 = Math.abs(num16) % 10;
+                if (d1_16 == d2_16 || d1_16 == d3_16 || d2_16 == d3_16) {
+                    System.out.println("✓ Al menos 2 dígitos son iguales");
+                } else {
+                    System.out.println("✗ Todos los dígitos son diferentes");
+                }
+                break;
+
+            case 17:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num17 = teclado.nextInt();
+                int d1_17 = Math.abs(num17) / 100;
+                int d2_17 = (Math.abs(num17) / 10) % 10;
+                int d3_17 = Math.abs(num17) % 10;
+                if (d1_17 >= d2_17 && d1_17 >= d3_17) {
+                    System.out.println("El mayor dígito (" + d1_17 + ") está en la posición 1");
+                } else if (d2_17 >= d1_17 && d2_17 >= d3_17) {
+                    System.out.println("El mayor dígito (" + d2_17 + ") está en la posición 2");
+                } else {
+                    System.out.println("El mayor dígito (" + d3_17 + ") está en la posición 3");
+                }
+                break;
+
+            case 18:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num18 = teclado.nextInt();
+                int d1_18 = Math.abs(num18) / 100;
+                int d2_18 = (Math.abs(num18) / 10) % 10;
+                int d3_18 = Math.abs(num18) % 10;
+                boolean encontrado = false;
+                if (d1_18 != 0 && d2_18 % d1_18 == 0 && d3_18 % d1_18 == 0) {
+                    System.out.println("✓ " + d1_18 + " es múltiplo de los otros dos");
+                    encontrado = true;
+                }
+                if (d2_18 != 0 && d1_18 % d2_18 == 0 && d3_18 % d2_18 == 0) {
+                    System.out.println("✓ " + d2_18 + " es múltiplo de los otros dos");
+                    encontrado = true;
+                }
+                if (d3_18 != 0 && d1_18 % d3_18 == 0 && d2_18 % d3_18 == 0) {
+                    System.out.println("✓ " + d3_18 + " es múltiplo de los otros dos");
+                    encontrado = true;
+                }
+                if (!encontrado) {
+                    System.out.println("✗ Ningún dígito es múltiplo de los otros");
+                }
+                break;
+
+            case 19:
+                System.out.print("Ingresa el primer número: ");
+                int n1 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int n2 = teclado.nextInt();
+                System.out.print("Ingresa el tercer número: ");
+                int n3 = teclado.nextInt();
+                int mayor = n1;
+                if (n2 > mayor) mayor = n2;
+                if (n3 > mayor) mayor = n3;
+                System.out.println("El mayor es: " + mayor);
+                break;
+
+            case 20:
+                System.out.print("Ingresa el primer número: ");
+                int n1_20 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int n2_20 = teclado.nextInt();
+                System.out.print("Ingresa el tercer número: ");
+                int n3_20 = teclado.nextInt();
+                int temp;
+                if (n1_20 > n2_20) { temp = n1_20; n1_20 = n2_20; n2_20 = temp; }
+                if (n1_20 > n3_20) { temp = n1_20; n1_20 = n3_20; n3_20 = temp; }
+                if (n2_20 > n3_20) { temp = n2_20; n2_20 = n3_20; n3_20 = temp; }
+                System.out.println("Orden ascendente: " + n1_20 + ", " + n2_20 + ", " + n3_20);
+                break;
+
+            case 21:
+                System.out.print("Ingresa el primer número de 2 dígitos: ");
+                int num1_21 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número de 2 dígitos: ");
+                int num2_21 = teclado.nextInt();
+                System.out.print("Ingresa el tercer número de 2 dígitos: ");
+                int num3_21 = teclado.nextInt();
+                int max1 = Math.max(Math.abs(num1_21) / 10, Math.abs(num1_21) % 10);
+                int max2 = Math.max(Math.abs(num2_21) / 10, Math.abs(num2_21) % 10);
+                int max3 = Math.max(Math.abs(num3_21) / 10, Math.abs(num3_21) % 10);
+                if (max1 >= max2 && max1 >= max3) {
+                    System.out.println("El mayor dígito (" + max1 + ") está en " + num1_21);
+                } else if (max2 >= max1 && max2 >= max3) {
+                    System.out.println("El mayor dígito (" + max2 + ") está en " + num2_21);
+                } else {
+                    System.out.println("El mayor dígito (" + max3 + ") está en " + num3_21);
+                }
+                break;
+
+            case 22:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num22 = teclado.nextInt();
+                int d1_22 = Math.abs(num22) / 100;
+                int d3_22 = Math.abs(num22) % 10;
+                if (d1_22 == d3_22) {
+                    System.out.println("✓ El primer y último dígito son iguales");
+                } else {
+                    System.out.println("✗ El primer y último dígito son diferentes");
+                }
+                break;
+
+            case 23:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num23 = teclado.nextInt();
+                int d1_23 = Math.abs(num23) / 100;
+                int d2_23 = (Math.abs(num23) / 10) % 10;
+                int d3_23 = Math.abs(num23) % 10;
+                int cuenta23 = 0;
+                if (d1_23 == 2 || d1_23 == 3 || d1_23 == 5 || d1_23 == 7) cuenta23++;
+                if (d2_23 == 2 || d2_23 == 3 || d2_23 == 5 || d2_23 == 7) cuenta23++;
+                if (d3_23 == 2 || d3_23 == 3 || d3_23 == 5 || d3_23 == 7) cuenta23++;
+                System.out.println("Cantidad de dígitos primos: " + cuenta23);
+                break;
+
+            case 24:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num24 = teclado.nextInt();
+                int d1_24 = Math.abs(num24) / 100;
+                int d2_24 = (Math.abs(num24) / 10) % 10;
+                int d3_24 = Math.abs(num24) % 10;
+                int cuenta24 = 0;
+                if (d1_24 % 2 == 0) cuenta24++;
+                if (d2_24 % 2 == 0) cuenta24++;
+                if (d3_24 % 2 == 0) cuenta24++;
+                System.out.println("Cantidad de dígitos pares: " + cuenta24);
+                break;
+
+            case 25:
+                System.out.print("Ingresa un número de 3 dígitos: ");
+                int num25 = teclado.nextInt();
+                int d1_25 = Math.abs(num25) / 100;
+                int d2_25 = (Math.abs(num25) / 10) % 10;
+                int d3_25 = Math.abs(num25) % 10;
+                if (d1_25 == d2_25 + d3_25) {
+                    System.out.println("✓ " + d1_25 + " = " + d2_25 + " + " + d3_25);
+                } else if (d2_25 == d1_25 + d3_25) {
+                    System.out.println("✓ " + d2_25 + " = " + d1_25 + " + " + d3_25);
+                } else if (d3_25 == d1_25 + d2_25) {
+                    System.out.println("✓ " + d3_25 + " = " + d1_25 + " + " + d2_25);
+                } else {
+                    System.out.println("✗ Ningún dígito es igual a la suma de los otros");
+                }
+                break;
+
+            case 26:
+                System.out.print("Ingresa un número de 4 dígitos: ");
+                int num26 = teclado.nextInt();
+                int d1_26 = Math.abs(num26) / 1000;
+                int d2_26 = (Math.abs(num26) / 100) % 10;
+                int d3_26 = (Math.abs(num26) / 10) % 10;
+                int d4_26 = Math.abs(num26) % 10;
+                int suma26 = d1_26 + d2_26 + d3_26 + d4_26;
+                System.out.println("Suma de dígitos: " + suma26);
+                break;
+
+            case 27:
+                System.out.print("Ingresa un número de 4 dígitos: ");
+                int num27 = teclado.nextInt();
+                int d1_27 = Math.abs(num27) / 1000;
+                int d2_27 = (Math.abs(num27) / 100) % 10;
+                int d3_27 = (Math.abs(num27) / 10) % 10;
+                int d4_27 = Math.abs(num27) % 10;
+                int cuenta27 = 0;
+                if (d1_27 % 2 == 0) cuenta27++;
+                if (d2_27 % 2 == 0) cuenta27++;
+                if (d3_27 % 2 == 0) cuenta27++;
+                if (d4_27 % 2 == 0) cuenta27++;
+                System.out.println("Cantidad de dígitos pares: " + cuenta27);
+                break;
+
+            case 28:
+                System.out.print("Ingresa un número positivo menor que 50: ");
+                int num28 = teclado.nextInt();
+                boolean esPrimo28 = false;
+                if (num28 == 2 || num28 == 3 || num28 == 5 || num28 == 7 || num28 == 11 ||
+                        num28 == 13 || num28 == 17 || num28 == 19 || num28 == 23 || num28 == 29 ||
+                        num28 == 31 || num28 == 37 || num28 == 41 || num28 == 43 || num28 == 47) {
+                    esPrimo28 = true;
+                }
+                if (esPrimo28) {
+                    System.out.println("✓ SÍ es primo");
+                } else {
+                    System.out.println("✗ NO es primo");
+                }
+                break;
+
+            case 29:
+                System.out.print("Ingresa un número de 5 dígitos: ");
+                int num29 = teclado.nextInt();
+                int d1_29 = Math.abs(num29) / 10000;
+                int d2_29 = (Math.abs(num29) / 1000) % 10;
+                int d3_29 = (Math.abs(num29) / 100) % 10;
+                int d4_29 = (Math.abs(num29) / 10) % 10;
+                int d5_29 = Math.abs(num29) % 10;
+                if (d1_29 == d5_29 && d2_29 == d4_29) {
+                    System.out.println("✓ SÍ es capicúa");
+                } else {
+                    System.out.println("✗ NO es capicúa");
+                }
+                break;
+
+            case 30:
+                System.out.print("Ingresa un número de 4 dígitos: ");
+                int num30 = teclado.nextInt();
+                int d2_30 = (Math.abs(num30) / 100) % 10;
+                int d3_30 = (Math.abs(num30) / 10) % 10;
+                if (d2_30 == d3_30) {
+                    System.out.println("✓ El segundo y penúltimo dígito son iguales");
+                } else {
+                    System.out.println("✗ El segundo y penúltimo dígito son diferentes");
+                }
+                break;
+
+            case 31:
+                System.out.print("Ingresa un número: ");
+                int num31 = teclado.nextInt();
+                if (num31 == 10) {
+                    System.out.println("✓ SÍ es igual a 10");
+                } else {
+                    System.out.println("✗ NO es igual a 10");
+                }
+                break;
+
+            case 32:
+                System.out.print("Ingresa un número: ");
+                int num32 = teclado.nextInt();
+                if (num32 % 7 == 0) {
+                    System.out.println("✓ SÍ es múltiplo de 7");
+                } else {
+                    System.out.println("✗ NO es múltiplo de 7");
+                }
+                break;
+
+            case 33:
+                System.out.print("Ingresa un número: ");
+                int num33 = teclado.nextInt();
+                if (num33 % 10 == 7 || num33 % 10 == -7) {
+                    System.out.println("✓ SÍ termina en 7");
+                } else {
+                    System.out.println("✗ NO termina en 7");
+                }
+                break;
+
+            case 34:
+                System.out.print("Ingresa un número menor que 1000: ");
+                int num34 = teclado.nextInt();
+                int abs34 = Math.abs(num34);
+                int digitos34 = 0;
+                if (abs34 >= 100) {
+                    digitos34 = 3;
+                } else if (abs34 >= 10) {
+                    digitos34 = 2;
+                } else {
+                    digitos34 = 1;
+                }
+                System.out.println("Cantidad de dígitos: " + digitos34);
+                break;
+
+            case 35:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num35 = teclado.nextInt();
+                int digitoDecena = Math.abs(num35) / 10;
+                int digitoUnidad = Math.abs(num35) % 10;
+                System.out.println("Dígito de las decenas: " + digitoDecena);
+                System.out.println("Dígito de las unidades: " + digitoUnidad);
+                break;
+
+            case 36:
+                System.out.print("Ingresa un número de 4 dígitos: ");
+                int num36 = teclado.nextInt();
+                int d1_36 = Math.abs(num36) / 1000;
+                int d2_36 = (Math.abs(num36) / 100) % 10;
+                int d3_36 = (Math.abs(num36) / 10) % 10;
+                int d4_36 = Math.abs(num36) % 10;
+                int pares36 = 0, impares36 = 0;
+                if (d1_36 % 2 == 0) pares36++; else impares36++;
+                if (d2_36 % 2 == 0) pares36++; else impares36++;
+                if (d3_36 % 2 == 0) pares36++; else impares36++;
+                if (d4_36 % 2 == 0) pares36++; else impares36++;
+                if (pares36 > impares36) {
+                    System.out.println("Tiene más dígitos pares (" + pares36 + ") que impares (" + impares36 + ")");
+                } else if (impares36 > pares36) {
+                    System.out.println("Tiene más dígitos impares (" + impares36 + ") que pares (" + pares36 + ")");
+                } else {
+                    System.out.println("Tiene igual cantidad de pares e impares (" + pares36 + " cada uno)");
+                }
+                break;
+
+            case 37:
+                System.out.print("Ingresa el primer número: ");
+                int num1_37 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_37 = teclado.nextInt();
+                if (num1_37 != 0 && num2_37 % num1_37 == 0) {
+                    System.out.println(num2_37 + " es múltiplo de " + num1_37);
+                } else if (num2_37 != 0 && num1_37 % num2_37 == 0) {
+                    System.out.println(num1_37 + " es múltiplo de " + num2_37);
+                } else {
+                    System.out.println("Ninguno es múltiplo del otro");
+                }
+                break;
+
+            case 38:
+                System.out.print("Ingresa el primer número: ");
+                int num1_38 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_38 = teclado.nextInt();
+                System.out.print("Ingresa el tercer número: ");
+                int num3_38 = teclado.nextInt();
+                int ultimo1 = Math.abs(num1_38) % 10;
+                int ultimo2 = Math.abs(num2_38) % 10;
+                int ultimo3 = Math.abs(num3_38) % 10;
+                if (ultimo1 == ultimo2 && ultimo2 == ultimo3) {
+                    System.out.println("✓ Los tres números tienen el mismo último dígito (" + ultimo1 + ")");
+                } else {
+                    System.out.println("✗ NO tienen el mismo último dígito");
+                }
+                break;
+
+            case 39:
+                System.out.print("Ingresa el primer número: ");
+                int num1_39 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_39 = teclado.nextInt();
+                System.out.print("Ingresa el tercer número: ");
+                int num3_39 = teclado.nextInt();
+                int penultimo1 = (Math.abs(num1_39) / 10) % 10;
+                int penultimo2 = (Math.abs(num2_39) / 10) % 10;
+                int penultimo3 = (Math.abs(num3_39) / 10) % 10;
+                if (penultimo1 == penultimo2 && penultimo2 == penultimo3) {
+                    System.out.println("✓ Los tres números tienen el mismo penúltimo dígito (" + penultimo1 + ")");
+                } else {
+                    System.out.println("✗ NO tienen el mismo penúltimo dígito");
+                }
+                break;
+
+            case 40:
+                System.out.print("Ingresa el primer número: ");
+                int num1_40 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_40 = teclado.nextInt();
+                int diferencia40 = Math.abs(num1_40 - num2_40);
+                if (diferencia40 <= 10) {
+                    int menor40 = Math.min(num1_40, num2_40);
+                    int mayor40 = Math.max(num1_40, num2_40);
+                    System.out.print("Números entre " + menor40 + " y " + mayor40 + ": ");
+                    for (int i = menor40; i <= mayor40; i++) {
+                        System.out.print(i + " ");
+                    }
+                    System.out.println();
+                } else {
+                    System.out.println("La diferencia (" + diferencia40 + ") es mayor que 10");
+                }
+                break;
+
+            case 41:
+                System.out.print("Ingresa el primer número: ");
+                int num1_41 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_41 = teclado.nextInt();
+                int diferencia41 = Math.abs(num1_41 - num2_41);
+                boolean esPrimo41 = (diferencia41 == 2 || diferencia41 == 3 || diferencia41 == 5 ||
+                        diferencia41 == 7 || diferencia41 == 11 || diferencia41 == 13 ||
+                        diferencia41 == 17 || diferencia41 == 19 || diferencia41 == 23 ||
+                        diferencia41 == 29 || diferencia41 == 31 || diferencia41 == 37 ||
+                        diferencia41 == 41 || diferencia41 == 43 || diferencia41 == 47);
+                if (esPrimo41) {
+                    System.out.println("✓ La diferencia (" + diferencia41 + ") SÍ es primo");
+                } else {
+                    System.out.println("✗ La diferencia (" + diferencia41 + ") NO es primo");
+                }
+                break;
+
+            case 42:
+                System.out.print("Ingresa el primer número: ");
+                int num1_42 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_42 = teclado.nextInt();
+                int diferencia42 = Math.abs(num1_42 - num2_42);
+                if (diferencia42 % 2 == 0) {
+                    System.out.println("✓ La diferencia (" + diferencia42 + ") es par");
+                } else {
+                    System.out.println("✗ La diferencia (" + diferencia42 + ") es impar");
+                }
+                break;
+
+            case 43:
+                System.out.print("Ingresa el primer número: ");
+                int num1_43 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_43 = teclado.nextInt();
+                int diferencia43 = Math.abs(num1_43 - num2_43);
+                if (diferencia43 != 0 && (num1_43 % diferencia43 == 0 || num2_43 % diferencia43 == 0)) {
+                    System.out.println("✓ La diferencia (" + diferencia43 + ") es divisor exacto de alguno de los números");
+                } else {
+                    System.out.println("✗ La diferencia NO es divisor exacto de ninguno");
+                }
+                break;
+
+            case 44:
+                System.out.print("Ingresa un número de 4 dígitos: ");
+                int num44 = teclado.nextInt();
+                int d1_44 = Math.abs(num44) / 1000;
+                int d2_44 = (Math.abs(num44) / 100) % 10;
+                int d3_44 = (Math.abs(num44) / 10) % 10;
+                int d4_44 = Math.abs(num44) % 10;
+                boolean encontrado44 = false;
+                if (d2_44 != 0 && d1_44 % d2_44 == 0) {
+                    System.out.println("✓ El primer dígito (" + d1_44 + ") es múltiplo del segundo (" + d2_44 + ")");
+                    encontrado44 = true;
+                }
+                if (d3_44 != 0 && d1_44 % d3_44 == 0) {
+                    System.out.println("✓ El primer dígito (" + d1_44 + ") es múltiplo del tercero (" + d3_44 + ")");
+                    encontrado44 = true;
+                }
+                if (d4_44 != 0 && d1_44 % d4_44 == 0) {
+                    System.out.println("✓ El primer dígito (" + d1_44 + ") es múltiplo del cuarto (" + d4_44 + ")");
+                    encontrado44 = true;
+                }
+                if (!encontrado44) {
+                    System.out.println("✗ El primer dígito NO es múltiplo de ninguno de los otros");
+                }
+                break;
+
+            case 45:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num45 = teclado.nextInt();
+                int abs45 = Math.abs(num45);
+                int d1_45 = abs45 / 10;
+                int d2_45 = abs45 % 10;
+                boolean esPrimo45 = (abs45 == 2 || abs45 == 3 || abs45 == 5 || abs45 == 7);
+
+                if (abs45 % 2 == 0) {
+                    int suma45 = d1_45 + d2_45;
+                    System.out.println("Es par, suma de dígitos: " + suma45);
+                }
+                if (esPrimo45 && abs45 < 10) {
+                    System.out.println("Es primo y menor que 10, último dígito: " + d2_45);
+                }
+                if (abs45 % 5 == 0 && abs45 < 30) {
+                    System.out.println("Es múltiplo de 5 y menor que 30, primer dígito: " + d1_45);
+                }
+                break;
+
+            case 46:
+                System.out.print("Ingresa un número de 2 dígitos: ");
+                int num46 = teclado.nextInt();
+                int abs46 = Math.abs(num46);
+                int d1_46 = abs46 / 10;
+                int d2_46 = abs46 % 10;
+                int ultimo46 = abs46 % 10;
+
+                if (ultimo46 == 1) {
+                    System.out.println("Termina en 1, primer dígito: " + d1_46);
+                } else if (ultimo46 == 2) {
+                    int suma46 = d1_46 + d2_46;
+                    System.out.println("Termina en 2, suma de dígitos: " + suma46);
+                } else if (ultimo46 == 3) {
+                    int producto46 = d1_46 * d2_46;
+                    System.out.println("Termina en 3, producto de dígitos: " + producto46);
+                }
+                break;
+
+            case 47:
+                System.out.print("Ingresa el primer número: ");
+                int num1_47 = teclado.nextInt();
+                System.out.print("Ingresa el segundo número: ");
+                int num2_47 = teclado.nextInt();
+                int diferencia47 = Math.abs(num1_47 - num2_47);
+                boolean esPrimo47 = (diferencia47 == 2 || diferencia47 == 3 || diferencia47 == 5 || diferencia47 == 7);
+
+                if (diferencia47 % 2 == 0) {
+                    int suma1 = 0, suma2 = 0;
+                    int temp1 = Math.abs(num1_47);
+                    int temp2 = Math.abs(num2_47);
+                    while (temp1 > 0) { suma1 += temp1 % 10; temp1 /= 10; }
+                    while (temp2 > 0) { suma2 += temp2 % 10; temp2 /= 10; }
+                    System.out.println("Diferencia par, suma de dígitos: " + (suma1 + suma2));
+                }
+                if (esPrimo47 && diferencia47 < 10) {
+                    int producto47 = num1_47 * num2_47;
+                    System.out.println("Diferencia primo menor que 10, producto: " + producto47);
+                }
+                if (diferencia47 % 10 == 4) {
+                    System.out.print("Diferencia termina en 4, dígitos: ");
+                    int temp1 = Math.abs(num1_47);
+                    int temp2 = Math.abs(num2_47);
+                    while (temp1 > 0) { System.out.print((temp1 % 10) + " "); temp1 /= 10; }
+                    while (temp2 > 0) { System.out.print((temp2 % 10) + " "); temp2 /= 10; }
+                    System.out.println();
+                }
+                break;
+
+            case 48:
+                System.out.print("Ingresa un número: ");
+                int num48 = teclado.nextInt();
+                if (num48 < 100) {
+                    boolean esPrimo48 = (num48 == 2 || num48 == 3 || num48 == 5 || num48 == 7 ||
+                            num48 == 11 || num48 == 13 || num48 == 17 || num48 == 19 ||
+                            num48 == 23 || num48 == 29 || num48 == 31 || num48 == 37 ||
+                            num48 == 41 || num48 == 43 || num48 == 47 || num48 == 53 ||
+                            num48 == 59 || num48 == 61 || num48 == 67 || num48 == 71 ||
+                            num48 == 73 || num48 == 79 || num48 == 83 || num48 == 89 || num48 == 97);
+                    if (esPrimo48) {
+                        System.out.println("✓ Es menor que 100 y SÍ es primo");
+                    } else {
+                        System.out.println("✗ Es menor que 100 pero NO es primo");
+                    }
+                } else {
+                    System.out.println("El número NO es menor que 100");
+                }
+                break;
+
+            case 49:
+                System.out.print("Ingresa un número: ");
+                int num49 = teclado.nextInt();
+                if (num49 % 4 == 0) {
+                    int ultimo49 = Math.abs(num49) % 10;
+                    boolean esPrimoUltimo = (ultimo49 == 2 || ultimo49 == 3 || ultimo49 == 5 || ultimo49 == 7);
+                    if (esPrimoUltimo) {
+                        System.out.println("✓ Es múltiplo de 4 y su último dígito (" + ultimo49 + ") es primo");
+                    } else {
+                        System.out.println("✗ Es múltiplo de 4 pero su último dígito (" + ultimo49 + ") NO es primo");
+                    }
+                } else {
+                    System.out.println("El número NO es múltiplo de 4");
+                }
+                break;
+
+            case 50:
+                System.out.print("Ingresa un número no mayor que 100: ");
+                int num50 = teclado.nextInt();
+                if (num50 % 4 == 0) {
+                    System.out.println("Es múltiplo de 4, su mitad: " + (num50 / 2));
+                }
+                if (num50 % 5 == 0) {
+                    System.out.println("Es múltiplo de 5, su cuadrado: " + (num50 * num50));
+                }
+                if (num50 % 6 == 0) {
+                    int primerDigito50 = Math.abs(num50);
+                    while (primerDigito50 >= 10) primerDigito50 /= 10;
+                    System.out.println("Es múltiplo de 6, primer dígito: " + primerDigito50);
+                }
+                break;
+
+            default:
+                System.out.println("Opción inválida");
+                break;
+        }
+
+        teclado.close();
+    }
+}
